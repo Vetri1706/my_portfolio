@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+/* Global theme variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070a12;
+  --foreground: #e8f3ff;
+  /* Professional accents */
+  --accent-sky: #38bdf8;    /* sky-400 */
+  --accent-indigo: #818cf8; /* indigo-400 */
+  --accent-emerald: #34d399; /* emerald-400 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  /* Professional base */
+  background: linear-gradient(180deg, #0c1220, #070a12);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
+
+/* Reusable utilities */
+.neon-text {
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.6), 0 0 14px rgba(129, 140, 248, 0.35);
+}
+
+.neon-glow {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.28), 0 0 16px rgba(56, 189, 248, 0.22), 0 0 36px rgba(129, 140, 248, 0.22);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.35), 0 0 18px rgba(129, 140, 248, 0.25), 0 0 36px rgba(52, 211, 153, 0.18);
+}
+
+.gradient-anim {
+  background: conic-gradient(from 0deg, rgba(56, 189, 248, 0.14), rgba(129, 140, 248, 0.14), rgba(52, 211, 153, 0.14), rgba(56, 189, 248, 0.14));
+  animation: spin 20s linear infinite;
+  filter: blur(40px);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 15, 0.5);
+}
+
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Section title helper for non-utility usage (optional) */
+.section-title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem;
+  font-weight: 700; /* font-bold */
+  letter-spacing: -0.01em; /* tracking-tight-ish */
+  color: #bae6fd; /* sky-200 */
+}
+
+/* Elegant UI extras */
+.gradient-text {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  background-position: -1px -1px, -1px -1px;
+}
+
+.glass-pan {
+  backdrop-filter: blur(12px);
+  background: rgba(12, 12, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-border {
+  position: relative;
+  border: 1px solid transparent;
+  background: linear-gradient(#0b0b13, #0b0b13) padding-box,
+    conic-gradient(from 180deg at 50% 50%, rgba(56, 189, 248, 0.55), rgba(129, 140, 248, 0.55), rgba(52, 211, 153, 0.55), rgba(56, 189, 248, 0.55)) border-box;
+}
+
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Professional layered background */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+.fade-edges {
+  mask-image: radial-gradient(60% 60% at 50% 50%, black 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(60% 60% at 50% 50%, black 65%, transparent 100%);
+}
+
+.animated-gradient {
+  background: radial-gradient(800px 400px at 10% 10%, rgba(56, 189, 248, 0.08), transparent 60%),
+    radial-gradient(700px 350px at 90% 20%, rgba(129, 140, 248, 0.08), transparent 60%),
+    radial-gradient(600px 300px at 40% 90%, rgba(52, 211, 153, 0.08), transparent 60%);
+  animation: pan 40s linear infinite;
+  filter: saturate(105%);
+}
+
+@keyframes pan {
+  0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+  50% { background-position: 20% 10%, -10% 20%, 10% -10%; }
+  100% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+}
+
+.spotlight {
+  background: radial-gradient(closest-side, rgba(56, 189, 248, 0.09), rgba(0,0,0,0));
+  filter: blur(20px);
+}
+

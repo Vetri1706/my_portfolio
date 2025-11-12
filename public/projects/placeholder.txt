@@ -1,0 +1,5 @@
+Replace images in this folder with your project thumbnails. Expected files (you can rename in src/data/projects.ts):
+- ev-forecast.jpg
+- backend-forge.jpg
+- splunk-air.jpg
+- baorder-control-app.jpg
